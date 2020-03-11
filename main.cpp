@@ -1,16 +1,13 @@
 #include "mbed.h"
 
-DigitalOut redLED(LED_RED);
-DigitalOut greenLED(LED_GREEN);
-
-int Led(DigitalOut& ledpin);
+DigitalOut gpo(D0);
+DigitalOut led(LED_RED);
 
 int main()
 {
-   redLED = 1;
-   greenLED = 1;
    while (true) {
-       Led(redLED);
-       Led(greenLED);
+       gpo = !gpo; // toggle pin
+       led = !led; // toggle led
+       wait(0.2f);
    }
 }
